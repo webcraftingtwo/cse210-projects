@@ -2,17 +2,18 @@ using System;
 
 public class Resume 
 {
-  public string _name;
-  // initialize list to a new list
-  public List<Job> _Jobs = new List<Job>();
-  public void Display()
-  {
-    console.WriteLine($"Name: {_name}");
-    console.WriteLine("Jobs: "
+     public string _name;
+  
+     // initialize list to a new list
+     public List<Job> _jobs = new List<Job>();
+     public void Display()
+     {
+         console.WriteLine($"Name: {_name}");
+         console.WriteLine("Jobs: "
 
-    foreach(Job job in _jobs) 
-        {
-            job.Display();
-        }
-  }
+         foreach(Job job in _jobs) 
+             {
+                job.Display();
+             }
+      }
 }
