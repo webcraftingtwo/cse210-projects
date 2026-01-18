@@ -9,7 +9,7 @@ public class Resume
      public void Display()
      {
          console.WriteLine($"Name: {_name}");
-         console.WriteLine("Jobs: "
+         console.WriteLine("Jobs: ");
 
          foreach (Job job in _jobs) 
              {
