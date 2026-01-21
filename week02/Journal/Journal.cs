@@ -20,17 +20,23 @@ public class Journal
     }
 
     public void SaveToFile(string file)
+{
+    using (StreamWriter outputFile = new StreamWriter(file))
     {
-        using (StreamWriter outputFile = new StreamWriter(file))
+        foreach (Entry entry in _entries)
         {
-            foreach (Entry entry in _entries)
-            {
-                // Format: Date|Prompt|Entry|Mood
-                // We use | as a separator to avoid issues with commas in the text
-                outputFile.WriteLine($"{entry._date}|{entry._promptText}|{entry._entryText}|{entry._mood}");
-            }
+            // Sanitize inputs: Replaced '|' with '~' so it doesn't break our loader
+            string cleanPrompt = entry._promptText.Replace("|", "~");
+            string cleanEntry = entry._entryText.Replace("|", "~");
+            string cleanMood = entry._mood.Replace("|", "~");
+            
+            outputFile.WriteLine($"{entry._date}|{cleanPrompt}|{cleanEntry}|{cleanMood}");
         }
     }
+}
+
+
+
 
     public void LoadFromFile(string file)
     {
