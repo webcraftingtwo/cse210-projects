@@ -1,4 +1,4 @@
-Using System;
+using System;
 
 public class Reference {
 
@@ -11,14 +11,14 @@ public class Reference {
         _book = book;
         _chapter = chapter;
         _verse = verse;
-        _endVerse = endverse;
+        _endVerse = verse;
     }
     
     public Reference(string book, int chapter, int verse, int endverse) {
         _book = book;
         _chapter = chapter;
         _verse = verse;
-        _endVerse = endverse;
+        _endVerse = verse;
     }
     
     public string GetDisplayText() {
